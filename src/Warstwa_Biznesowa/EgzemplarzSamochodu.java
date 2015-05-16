@@ -29,9 +29,9 @@ public class EgzemplarzSamochodu {
     @Override
     public String toString()
     {
-        return getModelSamochodu().toString() + " Nr rejstracyjny: " + getNrRejstracyjny() +
-                " Rok: " + getRokProdukcji() + " Pojemnosc : " + Integer.toString(getPojemoscSilnika()) + 
-                " Paliwo: " + getRodzajPaliwa() + " Nadwozie: " + getTypNadwozia();
+        return getModelSamochodu().toString() + ", Nr rejstracyjny: " + getNrRejstracyjny() +
+                ", Rok: " + getRokProdukcji() + ", Pojemnosc : " + Integer.toString(getPojemoscSilnika()) + 
+                ", Paliwo: " + getRodzajPaliwa() + ", Nadwozie: " + getTypNadwozia();
     }
     
     @Override

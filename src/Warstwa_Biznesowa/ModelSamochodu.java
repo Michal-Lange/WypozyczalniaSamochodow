@@ -98,9 +98,7 @@ public class ModelSamochodu {
     
     @Override
     public String toString() {
-        return getMarka()
-                + ",  " + getModel()
-                + ", Ilosc miejsc: " + getIloscMiejsc();
+        return getMarka() + ", " + getModel() + ", Ilosc miejsc: " + getIloscMiejsc();
     }
     
     
