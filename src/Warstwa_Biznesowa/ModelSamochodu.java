@@ -51,6 +51,10 @@ public class ModelSamochodu {
             return egzemplarzSamochodu;
         }
     }
+    
+    boolean addRezerwacja(Rezerwacja rezerwacja){
+        return rezerwacjeModelu.add(rezerwacja);
+    }
 
     
     public String getMarka() {
@@ -151,5 +155,38 @@ public class ModelSamochodu {
      */
     public void setEgzemplarzeModelu(ArrayList<EgzemplarzSamochodu> egzemplarzeModelu) {
         this.egzemplarzeSamochodu = egzemplarzeModelu;
+    }
+
+    public ArrayList<String> add_egzemplarz(String data[]) {
+        Factory factory = new Factory();
+        EgzemplarzSamochodu newEgzemplarz = factory.create_egzemplarzSamochodu(data);
+        newEgzemplarz.setModelSamochodu(this);
+        if(search_egzemplarz(newEgzemplarz) == null)
+        {
+            egzemplarzeSamochodu.add(newEgzemplarz);
+            return getEgzemplarzeString();
+        }
+        return null;
+    }
+    
+    public ArrayList<String> getEgzemplarzeString()
+    {
+        ArrayList<String> egzemplarze = new ArrayList();
+        for(EgzemplarzSamochodu e: this.getEgzemplarzeModelu())
+        {
+            egzemplarze.add(e.toString());
+        }
+        return egzemplarze;
+    }
+    
+    public EgzemplarzSamochodu search_egzemplarz(EgzemplarzSamochodu egzemplarz)
+    {
+        int idx;
+        if((idx = egzemplarzeSamochodu.indexOf(egzemplarz)) != -1)
+        {
+            egzemplarz = (EgzemplarzSamochodu)egzemplarzeSamochodu.get(idx);
+            return egzemplarz;
+        }
+        return null;
     }
 }

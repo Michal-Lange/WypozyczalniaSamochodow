@@ -53,6 +53,10 @@ public class EgzemplarzSamochodu {
         return hash;
     }
 
+    boolean addRezerwacja(Rezerwacja rezerwacja){
+        return rezerwacjeEgzemplarza.add(rezerwacja);
+    }
+    
     /**
      * @return the nrRejstracyjny
      */

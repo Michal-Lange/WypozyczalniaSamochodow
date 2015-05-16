@@ -6,6 +6,8 @@
 package Warstwa_Biznesowa;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -16,12 +18,22 @@ public class Klient {
     private String nazwisko;
     private String pesel;
     
-    private ArrayList<Rezerwacja> rezerwacje_klienta = new ArrayList<>();
+    private ArrayList<Rezerwacja> rezerwacjeKlienta;
+    
+    public Klient()
+    {
+        rezerwacjeKlienta = new ArrayList<>();
+    }
+    
+    public boolean addRezerwacja(Rezerwacja rezerwacja)
+    {
+        return rezerwacjeKlienta.add(rezerwacja);
+    }
     
     @Override
     public String toString()
     {
-        return "Imie: " + getImie() + " Nazwisko: " + getNazwisko() + " Pesel: " + getPesel();
+        return getImie() + " " + getNazwisko() + ", " + getPesel();
     }
 
     /**
@@ -69,15 +81,37 @@ public class Klient {
     /**
      * @return the rezerwacje_klienta
      */
-    public ArrayList<Rezerwacja> getRezerwacje_klienta() {
-        return rezerwacje_klienta;
+    public ArrayList<Rezerwacja> getRezerwacjeKlienta() {
+        return rezerwacjeKlienta;
     }
 
     /**
      * @param rezerwacje_klienta the rezerwacje_klienta to set
      */
-    public void setRezerwacje_klienta(ArrayList<Rezerwacja> rezerwacje_klienta) {
-        this.rezerwacje_klienta = rezerwacje_klienta;
+    public void setRezerwacjeKlienta(ArrayList<Rezerwacja> rezerwacjeKlienta) {
+        this.rezerwacjeKlienta = rezerwacjeKlienta;
     }
- 
+    
+    @Override
+    public boolean equals(Object ob){
+        String imieKlient1 = this.getImie();
+        String imieKlient2 = ((Klient)ob).getImie();
+        
+        String nazwiskoKlient1 = this.getNazwisko();
+        String nazwiskoKlient2 = ((Klient)ob).getNazwisko();
+        
+        String peselKlient1 = this.getPesel();
+        String peselKlient2 = ((Klient)ob).getPesel();
+
+        return imieKlient1.equals(imieKlient2) && (nazwiskoKlient1.equals(nazwiskoKlient2)) && (peselKlient1.equals(peselKlient2));
+    } 
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.imie);
+        hash = 47 * hash + Objects.hashCode(this.nazwisko);
+        hash = 47 * hash + Objects.hashCode(this.pesel);
+        return hash;
+    }
 }
