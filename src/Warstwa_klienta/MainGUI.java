@@ -32,8 +32,9 @@ public class MainGUI extends javax.swing.JFrame {
         initComponents();
         fasada = new Fasada();
         fillTableModeleSamochodow();
-        fillListModeleSamochodow();
-        fillListEgzemplarzeSamochodow();
+        fillTableModeleDodajEgzemplarz();
+        fillTableEgzemplarzeModeli();
+        fillTableKlienci();
     }
     Fasada fasada;
     ArrayList<Klient> wybraniKlienci;
@@ -48,6 +49,8 @@ public class MainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
         jTabbedPaneRezerwacje = new javax.swing.JTabbedPane();
         jPanelModeleSamochodow = new javax.swing.JPanel();
         jTextFieldMarka = new javax.swing.JTextField();
@@ -60,8 +63,6 @@ public class MainGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableModeleSamochodow = new javax.swing.JTable();
         jPanelEgzemplarzeSamochodow = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListModele = new javax.swing.JList();
         jButtonDodajEgzemplarz = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -73,8 +74,10 @@ public class MainGUI extends javax.swing.JFrame {
         jComboBoxPaliwo = new javax.swing.JComboBox();
         jComboBoxNadwozie = new javax.swing.JComboBox();
         jSpinnerSilnik = new javax.swing.JSpinner();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jListEgzemplarze = new javax.swing.JList();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTableModeleDodajEgzemplarz = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEgzemplarzeModeli = new javax.swing.JTable();
         jPanelKlienci = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldImie = new javax.swing.JTextField();
@@ -83,11 +86,11 @@ public class MainGUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextFieldPesel = new javax.swing.JTextField();
         jButtonDodajKlienta = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jListKlienci = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableKlienci = new javax.swing.JTable();
         jPanelRezerwacje = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTableKlienci = new javax.swing.JTable();
+        jTableKlienciR1 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldSzukaj = new javax.swing.JTextField();
         jButtonSzukaj = new javax.swing.JButton();
@@ -103,8 +106,48 @@ public class MainGUI extends javax.swing.JFrame {
         jButtonZarezerwuj = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableRezerwacjeKlienta = new javax.swing.JTable();
+        jPanelRezerwacjeR2 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextFieldKlientR2 = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTableKlienciR2 = new javax.swing.JTable();
+        jButtonSzukajR2 = new javax.swing.JButton();
+        jTextFieldModelSamochoduR2 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jButtonSzukajModeluR2 = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTableModeleR2 = new javax.swing.JTable();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTableEgzemplarzeR2 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextFieldEgzemplarzR2 = new javax.swing.JTextField();
+        jSpinnerDataR2 = new javax.swing.JSpinner();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jSpinnerIloscDniR2 = new javax.swing.JSpinner();
+        jButtonSzukajEgzemplarzyR2Wzorzec = new javax.swing.JButton();
+        jButtonSzukajEgzemplarzyR2Model = new javax.swing.JButton();
+        jButtonRezerwujR2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTableRezerwacjeR2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel19.setText("jLabel19");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,7 +197,7 @@ public class MainGUI extends javax.swing.JFrame {
                         .addComponent(jSpinner1))
                     .addComponent(jButtonDodajModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelModeleSamochodowLayout.setVerticalGroup(
@@ -176,19 +219,12 @@ public class MainGUI extends javax.swing.JFrame {
                             .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDodajModel)
-                        .addGap(0, 399, Short.MAX_VALUE))
+                        .addGap(0, 485, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
 
         jTabbedPaneRezerwacje.addTab("Modele Samochodów", jPanelModeleSamochodow);
-
-        jListModele.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListModeleValueChanged(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jListModele);
 
         jButtonDodajEgzemplarz.setText("Dodaj Egzemplarz");
         jButtonDodajEgzemplarz.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +251,36 @@ public class MainGUI extends javax.swing.JFrame {
 
         jSpinnerSilnik.setModel(new javax.swing.SpinnerNumberModel(1598, 0, 20000, 1));
 
-        jScrollPane3.setViewportView(jListEgzemplarze);
+        jTableModeleDodajEgzemplarz.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jTableModeleDodajEgzemplarz.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableModeleDodajEgzemplarzPropertyChange(evt);
+            }
+        });
+        jScrollPane11.setViewportView(jTableModeleDodajEgzemplarz);
+
+        jTableEgzemplarzeModeli.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTableEgzemplarzeModeli);
 
         javax.swing.GroupLayout jPanelEgzemplarzeSamochodowLayout = new javax.swing.GroupLayout(jPanelEgzemplarzeSamochodow);
         jPanelEgzemplarzeSamochodow.setLayout(jPanelEgzemplarzeSamochodowLayout);
@@ -223,9 +288,8 @@ public class MainGUI extends javax.swing.JFrame {
             jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
+                .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
                         .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
@@ -233,8 +297,8 @@ public class MainGUI extends javax.swing.JFrame {
                         .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldRejstracja, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(jSpinnerRok)))
-                    .addComponent(jButtonDodajEgzemplarz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
+                    .addComponent(jButtonDodajEgzemplarz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
                         .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
@@ -242,10 +306,11 @@ public class MainGUI extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSpinnerSilnik)
-                            .addComponent(jComboBoxPaliwo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxNadwozie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                            .addComponent(jComboBoxPaliwo, 0, 137, Short.MAX_VALUE)
+                            .addComponent(jComboBoxNadwozie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelEgzemplarzeSamochodowLayout.setVerticalGroup(
@@ -253,9 +318,9 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanelEgzemplarzeSamochodowLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelEgzemplarzeSamochodowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -296,7 +361,18 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane5.setViewportView(jListKlienci);
+        jTableKlienci.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTableKlienci);
 
         javax.swing.GroupLayout jPanelKlienciLayout = new javax.swing.GroupLayout(jPanelKlienci);
         jPanelKlienci.setLayout(jPanelKlienciLayout);
@@ -317,37 +393,37 @@ public class MainGUI extends javax.swing.JFrame {
                                 .addComponent(jTextFieldNazwisko))
                             .addComponent(jTextFieldPesel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButtonDodajKlienta, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelKlienciLayout.setVerticalGroup(
             jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelKlienciLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextFieldImie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextFieldNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextFieldPesel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDodajKlienta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelKlienciLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                    .addGroup(jPanelKlienciLayout.createSequentialGroup()
+                        .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldImie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jTextFieldNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelKlienciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jTextFieldPesel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDodajKlienta)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jTabbedPaneRezerwacje.addTab("Klienci", jPanelKlienci);
 
-        jTableKlienci.setModel(new javax.swing.table.DefaultTableModel(
+        jTableKlienciR1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -358,7 +434,7 @@ public class MainGUI extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane4.setViewportView(jTableKlienci);
+        jScrollPane4.setViewportView(jTableKlienciR1);
 
         jLabel12.setText("Klient:");
 
@@ -392,7 +468,7 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel14.setText("Wypożyczenie:");
 
-        jSpinnerIloscDni.setModel(new javax.swing.SpinnerNumberModel(1, -1, 365, 1));
+        jSpinnerIloscDni.setModel(new javax.swing.SpinnerNumberModel(1, 1, 365, 1));
 
         jLabel17.setText("Ilość dni:");
 
@@ -435,7 +511,7 @@ public class MainGUI extends javax.swing.JFrame {
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelRezerwacjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                             .addGroup(jPanelRezerwacjeLayout.createSequentialGroup()
                                 .addGroup(jPanelRezerwacjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRezerwacjeLayout.createSequentialGroup()
@@ -481,13 +557,233 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonZarezerwuj)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPaneRezerwacje.addTab("Rezerwacje", jPanelRezerwacje);
+        jTabbedPaneRezerwacje.addTab("Dodaj Rezerwacje (zle)", jPanelRezerwacje);
+
+        jLabel15.setText("Klient:");
+
+        jTableKlienciR2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane8.setViewportView(jTableKlienciR2);
+
+        jButtonSzukajR2.setText("Szukaj");
+        jButtonSzukajR2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSzukajR2ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Model Samochodu:");
+
+        jButtonSzukajModeluR2.setText("Szukaj");
+        jButtonSzukajModeluR2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSzukajModeluR2ActionPerformed(evt);
+            }
+        });
+
+        jTableModeleR2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane9.setViewportView(jTableModeleR2);
+
+        jTableEgzemplarzeR2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane10.setViewportView(jTableEgzemplarzeR2);
+
+        jLabel18.setText("Egzemplarz:");
+
+        jSpinnerDataR2.setModel(new javax.swing.SpinnerDateModel());
+
+        jLabel20.setText("Wypożyczenie:");
+
+        jLabel21.setText("Ilość dni:");
+
+        jSpinnerIloscDniR2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 365, 1));
+
+        jButtonSzukajEgzemplarzyR2Wzorzec.setText("Szukaj wszystkich wolnych według wzorca");
+        jButtonSzukajEgzemplarzyR2Wzorzec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSzukajEgzemplarzyR2WzorzecActionPerformed(evt);
+            }
+        });
+
+        jButtonSzukajEgzemplarzyR2Model.setText("Szukaj wolnych egzemplarzy wybranego modelu");
+        jButtonSzukajEgzemplarzyR2Model.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSzukajEgzemplarzyR2ModelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldEgzemplarzR2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerIloscDniR2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerDataR2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSzukajEgzemplarzyR2Wzorzec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSzukajEgzemplarzyR2Model, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEgzemplarzR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jButtonSzukajEgzemplarzyR2Wzorzec))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jSpinnerDataR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jSpinnerIloscDniR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSzukajEgzemplarzyR2Model))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButtonRezerwujR2.setText("Utwórz rezerwację");
+        jButtonRezerwujR2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRezerwujR2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelRezerwacjeR2Layout = new javax.swing.GroupLayout(jPanelRezerwacjeR2);
+        jPanelRezerwacjeR2.setLayout(jPanelRezerwacjeR2Layout);
+        jPanelRezerwacjeR2Layout.setHorizontalGroup(
+            jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRezerwacjeR2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelRezerwacjeR2Layout.createSequentialGroup()
+                        .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelRezerwacjeR2Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldKlientR2))
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                            .addComponent(jButtonSzukajR2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSzukajModeluR2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelRezerwacjeR2Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldModelSamochoduR2))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane10)
+                    .addComponent(jButtonRezerwujR2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
+        );
+        jPanelRezerwacjeR2Layout.setVerticalGroup(
+            jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRezerwacjeR2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextFieldKlientR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldModelSamochoduR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSzukajR2)
+                    .addComponent(jButtonSzukajModeluR2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRezerwacjeR2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRezerwujR2)
+                .addContainerGap())
+        );
+
+        jTabbedPaneRezerwacje.addTab("Dodaj Rezerwacje R2", jPanelRezerwacjeR2);
+
+        jTableRezerwacjeR2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane12.setViewportView(jTableRezerwacjeR2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+        );
+
+        jTabbedPaneRezerwacje.addTab("Przeglądaj Rezerwacje R2", jPanel3);
 
         jMenu1.setText("Plik");
+
+        jMenuItem1.setText("Utwórz dane DEMO");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -496,11 +792,15 @@ public class MainGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneRezerwacje)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPaneRezerwacje)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneRezerwacje, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPaneRezerwacje)
+                .addContainerGap())
         );
 
         pack();
@@ -516,7 +816,8 @@ public class MainGUI extends javax.swing.JFrame {
         if(addModelSamochoduResult)
         {
             fillTableModeleSamochodow();
-            fillListModeleSamochodow();
+            fillTableModeleDodajEgzemplarz();
+            JOptionPane.showMessageDialog(this, "Dodawanie modelu zakońćzone sukcesem.");
         }
         else
         {
@@ -525,7 +826,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDodajModelActionPerformed
 
     private void jButtonDodajEgzemplarzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDodajEgzemplarzActionPerformed
-        if (jListModele.getSelectionModel().isSelectionEmpty())
+        if (jTableModeleDodajEgzemplarz.getSelectionModel().isSelectionEmpty())
         {
             JOptionPane.showMessageDialog(this, "Prosze wybrać model");
             return;
@@ -535,23 +836,24 @@ public class MainGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Prosze podać nr rejstracyjny");
             return;
         }
-        String data[] = {jTextFieldRejstracja.getText(), jSpinnerRok.getValue().toString(),
+        String model = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 0).toString();
+        String marka = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 1).toString();
+        String miejsca = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 2).toString();
+        
+        String dataModel[] = {model,marka,miejsca};
+        String dataEgzemplarz[] = {jTextFieldRejstracja.getText(), jSpinnerRok.getValue().toString(),
             jComboBoxPaliwo.getSelectedItem().toString(), jComboBoxNadwozie.getSelectedItem().toString(), jSpinnerSilnik.getValue().toString()};
-        int modelIndex = jListModele.getSelectedIndex();
-        EgzemplarzSamochodu nowyEgzemplarz = fasada.addEgzemplarzSamochodu(data, fasada.getModeleSamochodow().get(modelIndex));
-        if(nowyEgzemplarz!=null)
+
+        if(fasada.add_EgzemplarzSamochodu(dataModel, dataEgzemplarz) != null)
         {
-            fillListEgzemplarzeSamochodow();
+            JOptionPane.showMessageDialog(this, "Dodawanie egzemplarzu zakońćzone sukcesem.");
+            fillTableEgzemplarzeModeli();
         }
         else
         {
             JOptionPane.showMessageDialog(this, "Nie udało się dodać egzemplarza. Sprawdź czy w systemie nie istnieje identyczny egzemplarz.");
         }
     }//GEN-LAST:event_jButtonDodajEgzemplarzActionPerformed
-
-    private void jListModeleValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListModeleValueChanged
-        fillListEgzemplarzeSamochodow();
-    }//GEN-LAST:event_jListModeleValueChanged
 
     private void jButtonDodajKlientaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDodajKlientaActionPerformed
         String[] daneKlienta = {jTextFieldImie.getText(),jTextFieldNazwisko.getText(),jTextFieldPesel.getText()};
@@ -572,7 +874,7 @@ public class MainGUI extends javax.swing.JFrame {
         boolean result = fasada.addKlient(daneKlienta);
         if(result)
         {
-            fillListKlienci();
+            fillTableKlienci();
         }
         else
         {
@@ -586,7 +888,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSzukajActionPerformed
 
     private void jButtonZarezerwujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZarezerwujActionPerformed
-        Klient klient = wybraniKlienci.get(jTableKlienci.getSelectedRow());
+        Klient klient = wybraniKlienci.get(jTableKlienciR1.getSelectedRow());
         EgzemplarzSamochodu egzemplarz = wybraneEgzemplarze.get(jTableWolneEgzemplarze.getSelectedRow());
         Date wypozyczenie = (Date)jSpinnerWypozyczenie.getValue();
         GregorianCalendar cal = new GregorianCalendar();
@@ -608,15 +910,172 @@ public class MainGUI extends javax.swing.JFrame {
         cal.getTime();
         Date zwrot = cal.getTime();
         wybraneEgzemplarze = fasada.szukajEgzemplarza(jTextFieldEgzemplarz.getText(), wypozyczenie, zwrot);
-        fillTableWolneEgzemplarze(wybraneEgzemplarze);
     }//GEN-LAST:event_jButtonSzukajEgzemplarzaActionPerformed
+
+    private void jButtonSzukajR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzukajR2ActionPerformed
+        fillTableKlienciR2(fasada.szukajKlientaR2(jTextFieldKlientR2.getText()));
+        
+    }//GEN-LAST:event_jButtonSzukajR2ActionPerformed
+
+    private void jButtonSzukajModeluR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzukajModeluR2ActionPerformed
+        fillTableModeleR2(fasada.szukajModeluR2(jTextFieldModelSamochoduR2.getText()));
+    }//GEN-LAST:event_jButtonSzukajModeluR2ActionPerformed
+
+    private void jButtonSzukajEgzemplarzyR2WzorzecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzukajEgzemplarzyR2WzorzecActionPerformed
+        Date wypozyczenie = (Date)jSpinnerDataR2.getValue();
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(wypozyczenie);
+        cal.add(Calendar.DATE, (int)jSpinnerIloscDniR2.getValue());
+        cal.getTime();
+        Date zwrot = cal.getTime();
+        fillTableEgzemplarzeR2(fasada.szukajEgzemplarzaR2Wzorzec(jTextFieldEgzemplarzR2.getText(), wypozyczenie.getTime(), zwrot.getTime()));
+    }//GEN-LAST:event_jButtonSzukajEgzemplarzyR2WzorzecActionPerformed
+
+    private void jButtonSzukajEgzemplarzyR2ModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzukajEgzemplarzyR2ModelActionPerformed
+        if(jTableModeleR2.getSelectedRow() != -1)
+        {
+            String model = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 0).toString();
+            String marka = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 1).toString();
+            String miejsca = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 2).toString();
+            String[] modelSamochodu = {model, marka, miejsca};
+            Date wypozyczenie = (Date)jSpinnerDataR2.getValue();
+            GregorianCalendar cal = new GregorianCalendar();
+            cal.setTime(wypozyczenie);
+            cal.add(Calendar.DATE, (int)jSpinnerIloscDniR2.getValue());
+            cal.getTime();
+            Date zwrot = cal.getTime();
+            fillTableEgzemplarzeR2(fasada.szukajEgzemplarzaR2Model(modelSamochodu, jTextFieldEgzemplarzR2.getText(), wypozyczenie.getTime(), zwrot.getTime()));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Proszę najpierw wybrać model samochodu.");
+        }
+    }//GEN-LAST:event_jButtonSzukajEgzemplarzyR2ModelActionPerformed
+
+    private void jButtonRezerwujR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRezerwujR2ActionPerformed
+        if(jTableKlienciR2.getSelectedRow() != -1 && jTableEgzemplarzeR2.getSelectedRow() != -1)
+        {
+            String imie = jTableKlienciR2.getModel().getValueAt(jTableKlienciR2.getSelectedRow(), 0).toString();
+            String nazwisko = jTableKlienciR2.getModel().getValueAt(jTableKlienciR2.getSelectedRow(), 1).toString();
+            String pesel = jTableKlienciR2.getModel().getValueAt(jTableKlienciR2.getSelectedRow(), 2).toString();
+            String[] klient = {imie,nazwisko,pesel};
+            
+            String marka = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 0).toString();
+            String model = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 1).toString();
+            String miejsca = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 2).toString();
+            String rejstracja = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 3).toString();
+            String paliwo = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 4).toString();
+            String rocznik = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 5).toString();
+            String nadwozie = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 6).toString();
+            String pojemnosc = jTableEgzemplarzeR2.getModel().getValueAt(jTableEgzemplarzeR2.getSelectedRow(), 7).toString();
+            String[] egzemplarz = {marka,model,miejsca,rejstracja,paliwo,rocznik,nadwozie,pojemnosc};
+            
+            Date wypozyczenie = (Date)jSpinnerDataR2.getValue();
+            GregorianCalendar cal = new GregorianCalendar();
+            cal.setTime(wypozyczenie);
+            cal.add(Calendar.DATE, (int)jSpinnerIloscDniR2.getValue());
+            cal.getTime();
+            Date zwrot = cal.getTime();
+            
+            boolean result = fasada.addRezerwacja(klient, egzemplarz, wypozyczenie.getTime(), zwrot.getTime());
+            
+            if(result)
+            {
+                fillTableRezerwacje();
+                JOptionPane.showMessageDialog(this, "Rezerwacja utworzona pomyślnie.");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Nie udało się utworzyć rezerwacji. Sprawdź, czy taka sama rezerwacja już nie istnieje.");
+            }
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Prosze wybrac klienta oraz egzemplarz samochodu.");
+        }
+    }//GEN-LAST:event_jButtonRezerwujR2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        String[] data = {"Opel","Astra G","5"};
+        String[] data1 = {"Fiat","126p","4"};
+        String[] data2 = {"Ford","Fiesta","5"};
+        
+        fasada.addModelSamochodu(data);
+        fasada.addModelSamochodu(data1);
+        fasada.addModelSamochodu(data2);
+        
+        String[] data1e = {"DL82852","2000","Benzyna","Kombi","1598"};
+        String[] data2e = {"DW54323","2001","Diesel","Sedan","1998"};
+        String[] data3e = {"DW54323","2005","Diesel","Sedan","995"};
+
+        fasada.add_EgzemplarzSamochodu(data, data1e);
+        fasada.add_EgzemplarzSamochodu(data, data2e);
+        fasada.add_EgzemplarzSamochodu(data1, data2e);
+        fasada.add_EgzemplarzSamochodu(data1, data3e);
+        
+        String[] klient1 = {"Michal","Lange","86090900358"};
+        String[] klient2 = {"Janusz","Jakistam","88121112413"};
+        
+        fasada.addKlient(klient1);
+        fasada.addKlient(klient2);
+        
+        fillTableModeleSamochodow();
+        fillTableModeleDodajEgzemplarz();
+        fillTableKlienci();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jTableModeleDodajEgzemplarzPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableModeleDodajEgzemplarzPropertyChange
+        fillTableEgzemplarzeModeli();
+    }//GEN-LAST:event_jTableModeleDodajEgzemplarzPropertyChange
+    
+    private void fillTableRezerwacje() {
+        String col[] = {"Rezerwacje" };
+        DefaultTableModel defaultTableModelRezerwacja = new DefaultTableModel(col,0);
+        jTableRezerwacjeR2.setModel(defaultTableModelRezerwacja);
+        for(String[] rezerwacja: fasada.getWszystkieRezerwacje())
+        {
+            Object[] objs = {rezerwacja[0]};
+            defaultTableModelRezerwacja.addRow(objs);
+        }
+        
+    }
+    
+    private void fillTableEgzemplarzeR2(String[][] egzemplarze){
+            String col[] = {"Model","Marka","Miejsca","Rejstracja","Paliwo","Rocznik","Nadwozie","Pojemnosc" };
+            DefaultTableModel defaultTableModelModeleEgzemplarz = new DefaultTableModel(col,0);
+            jTableEgzemplarzeR2.setModel(defaultTableModelModeleEgzemplarz);
+            for (String egzemplarz[] : egzemplarze) {
+                Object[] objs = {egzemplarz[0],egzemplarz[1],egzemplarz[2],egzemplarz[3],egzemplarz[4],egzemplarz[5],egzemplarz[6],egzemplarz[7]};
+                defaultTableModelModeleEgzemplarz.addRow(objs);
+            }
+    }
+    
+    private void fillTableModeleR2(String[][] modele){
+            String col[] = {"Marka","Model","Ilosc Miejsc"};
+            DefaultTableModel defaultTableModelModel = new DefaultTableModel(col,0);
+            jTableModeleR2.setModel(defaultTableModelModel);
+            for (String model[] : modele) {
+                Object[] objs = {model[0], model[1], model[2]};
+                defaultTableModelModel.addRow(objs);
+            }
+    }
+    
+    private void fillTableKlienciR2(String[][] klienci){
+            String col[] = {"Imię","Nazwisko","Pesel"};
+            DefaultTableModel defaultTableModelModeleKlienci = new DefaultTableModel(col,0);
+            jTableKlienciR2.setModel(defaultTableModelModeleKlienci);
+            for (String klient[] : klienci) {
+                Object[] objs = {klient[0], klient[1], klient[2]};
+                defaultTableModelModeleKlienci.addRow(objs);
+            }
+    }
     
     private void fillTableRezerwacjeKlienta()
     {
             String col[] = {"Wypozyczenie","Zwrot","Marka","Model"};
             DefaultTableModel defaultTableModelRezerwacjeKlienta = new DefaultTableModel(col,0);
             jTableRezerwacjeKlienta.setModel(defaultTableModelRezerwacjeKlienta);
-            Klient klient = wybraniKlienci.get(jTableKlienci.getSelectedRow());
+            Klient klient = wybraniKlienci.get(jTableKlienciR1.getSelectedRow());
             for(Rezerwacja rezerwacjaKlienta: klient.getRezerwacjeKlienta())
             {
                 Object[] objs = {rezerwacjaKlienta.getCzasWypozyczenia().toString(),
@@ -628,38 +1087,21 @@ public class MainGUI extends javax.swing.JFrame {
             
     }
     
-    private void fillListKlienci(){
-        DefaultListModel<String> defaultListModelIKlienci = new DefaultListModel<String>();
-        jListKlienci.setModel(defaultListModelIKlienci);
-        for (Klient klient : fasada.getKlienci()) {
-
-                defaultListModelIKlienci.addElement(klient.toString());
-        }
+    private void fillTableKlienci(){
         
+        String col[] = {"Imię","Nazwisko","Pesel"};
+        DefaultTableModel defaultTableModelModeleKlienci = new DefaultTableModel(col,0);
+        jTableKlienci.setModel(defaultTableModelModeleKlienci);
+        for (String klient[] : fasada.getKlienciAsStringArray()) {
+            Object[] objs = {klient[0], klient[1], klient[2]};
+            defaultTableModelModeleKlienci.addRow(objs);
+        }
     }
-    
-    private void fillTableWolneEgzemplarze(ArrayList<EgzemplarzSamochodu> wolneEgzemplarze)
-    {
-            String col[] = {"Marka","Model","Miejsc","Rejstracja","Pojemnosc","Paliwo","Nadwozie"};
-            DefaultTableModel defaultTableModelWolneEgzemplarze = new DefaultTableModel(col,0);
-            jTableWolneEgzemplarze.setModel(defaultTableModelWolneEgzemplarze);
-            for(EgzemplarzSamochodu egzemplarz: wolneEgzemplarze)
-            {
-                Object[] objs = {egzemplarz.getModelSamochodu().getMarka(),
-                                egzemplarz.getModelSamochodu().getModel(),
-                                egzemplarz.getModelSamochodu().getIloscMiejsc(),
-                                egzemplarz.getNrRejstracyjny(),
-                                egzemplarz.getPojemoscSilnika(),
-                                egzemplarz.getRodzajPaliwa(),
-                                egzemplarz.getTypNadwozia()};
-                defaultTableModelWolneEgzemplarze.addRow(objs);
-            }
-    }
-    
+
     private void fillTableKlienci(ArrayList<Klient> klienci){
             String col[] = {"Imię","Nazwisko","Pesel"};
             DefaultTableModel defaultTableModelModeleKlienci = new DefaultTableModel(col,0);
-            jTableKlienci.setModel(defaultTableModelModeleKlienci);
+            jTableKlienciR1.setModel(defaultTableModelModeleKlienci);
             for (Klient klient : klienci) {
                 Object[] objs = {klient.getImie(),klient.getNazwisko(),klient.getPesel()};
                 defaultTableModelModeleKlienci.addRow(objs);
@@ -670,33 +1112,38 @@ public class MainGUI extends javax.swing.JFrame {
             String col[] = {"Marka","Model","Ilosc Miejsc"};
             DefaultTableModel defaultTableModelModeleSamochodow = new DefaultTableModel(col,0);
             jTableModeleSamochodow.setModel(defaultTableModelModeleSamochodow);
-            //ArrayList<ModelSamochodu> modeleSamochodow = fasada.getModeleSamochodow();
-            for (ModelSamochodu model : fasada.getModeleSamochodow()) {
-                Object[] objs = {model.getMarka(),model.getModel(),model.getIloscMiejsc()};
+            for (String[] model: fasada.getModeleSamochoduAsStringArray()) {
+                Object[] objs = {model[0],model[1],model[2]};
                 defaultTableModelModeleSamochodow.addRow(objs);
             }
     }
     
-    private void fillListModeleSamochodow(){
-            DefaultListModel<String> defaultListModelModeleSamochodow = new DefaultListModel<String>();
-            jListModele.setModel(defaultListModelModeleSamochodow);
-            for (ModelSamochodu model : fasada.getModeleSamochodow()) {
-
-                defaultListModelModeleSamochodow.addElement(model.toString());
+    private void fillTableModeleDodajEgzemplarz() {
+        String col[] = {"Marka","Model","Ilosc Miejsc"};
+            DefaultTableModel defaultTableModelModeleSamochodow = new DefaultTableModel(col,0);
+            jTableModeleDodajEgzemplarz.setModel(defaultTableModelModeleSamochodow);
+            for (String[] model: fasada.getModeleSamochoduAsStringArray()) {
+                Object[] objs = {model[0],model[1],model[2]};
+                defaultTableModelModeleSamochodow.addRow(objs);
             }
     }
-    
-    private void fillListEgzemplarzeSamochodow(){
-            if (!jListModele.getSelectionModel().isSelectionEmpty())
-            {
-                DefaultListModel<String> defaultListModelEgzemplarzeSamochodow = new DefaultListModel<String>();
-                jListEgzemplarze.setModel(defaultListModelEgzemplarzeSamochodow);
-                ModelSamochodu modelSamochodu = fasada.getModeleSamochodow().get(jListModele.getSelectedIndex());
-                for (EgzemplarzSamochodu egzemplarz : modelSamochodu.getEgzemplarzeModelu()) {
 
-                    defaultListModelEgzemplarzeSamochodow.addElement(egzemplarz.toString());
-                }
+    private void fillTableEgzemplarzeModeli(){
+        if (!jTableModeleDodajEgzemplarz.getSelectionModel().isSelectionEmpty())
+        {
+            String col[] = {"Marka","Model","Miejsca","Rejstracja","Paliwo","Rocznik","Nadwozie","Pojemnosc" };
+            DefaultTableModel defaultTableModelEgzemplarzeModeli = new DefaultTableModel(col,0);
+            jTableEgzemplarzeModeli.setModel(defaultTableModelEgzemplarzeModeli);
+            String marka = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 0).toString();
+            String model = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 1).toString();
+            String miejsca = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 2).toString();
+            String dataModel[] = {model,marka,miejsca};
+            String egzemplarzeModelu[][] = fasada.getEgzemplarzeModeluAsStringArray(dataModel);
+            for (String egzemplarz[] : egzemplarzeModelu) {
+                Object[] objs = {egzemplarz[0],egzemplarz[1],egzemplarz[2],egzemplarz[3],egzemplarz[4],egzemplarz[5],egzemplarz[6],egzemplarz[7]};
+                defaultTableModelEgzemplarzeModeli.addRow(objs);
             }
+        }
     }
     
     
@@ -739,8 +1186,13 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDodajEgzemplarz;
     private javax.swing.JButton jButtonDodajKlienta;
     private javax.swing.JButton jButtonDodajModel;
+    private javax.swing.JButton jButtonRezerwujR2;
     private javax.swing.JButton jButtonSzukaj;
     private javax.swing.JButton jButtonSzukajEgzemplarza;
+    private javax.swing.JButton jButtonSzukajEgzemplarzyR2Model;
+    private javax.swing.JButton jButtonSzukajEgzemplarzyR2Wzorzec;
+    private javax.swing.JButton jButtonSzukajModeluR2;
+    private javax.swing.JButton jButtonSzukajR2;
     private javax.swing.JButton jButtonZarezerwuj;
     private javax.swing.JComboBox jComboBoxNadwozie;
     private javax.swing.JComboBox jComboBoxPaliwo;
@@ -750,8 +1202,14 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -759,39 +1217,58 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jListEgzemplarze;
-    private javax.swing.JList jListKlienci;
-    private javax.swing.JList jListModele;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelEgzemplarzeSamochodow;
     private javax.swing.JPanel jPanelKlienci;
     private javax.swing.JPanel jPanelModeleSamochodow;
     private javax.swing.JPanel jPanelRezerwacje;
+    private javax.swing.JPanel jPanelRezerwacjeR2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinnerDataR2;
     private javax.swing.JSpinner jSpinnerIloscDni;
+    private javax.swing.JSpinner jSpinnerIloscDniR2;
     private javax.swing.JSpinner jSpinnerRok;
     private javax.swing.JSpinner jSpinnerSilnik;
     private javax.swing.JSpinner jSpinnerWypozyczenie;
     private javax.swing.JTabbedPane jTabbedPaneRezerwacje;
+    private javax.swing.JTable jTableEgzemplarzeModeli;
+    private javax.swing.JTable jTableEgzemplarzeR2;
     private javax.swing.JTable jTableKlienci;
+    private javax.swing.JTable jTableKlienciR1;
+    private javax.swing.JTable jTableKlienciR2;
+    private javax.swing.JTable jTableModeleDodajEgzemplarz;
+    private javax.swing.JTable jTableModeleR2;
     private javax.swing.JTable jTableModeleSamochodow;
     private javax.swing.JTable jTableRezerwacjeKlienta;
+    private javax.swing.JTable jTableRezerwacjeR2;
     private javax.swing.JTable jTableWolneEgzemplarze;
     private javax.swing.JTextField jTextFieldEgzemplarz;
+    private javax.swing.JTextField jTextFieldEgzemplarzR2;
     private javax.swing.JTextField jTextFieldImie;
+    private javax.swing.JTextField jTextFieldKlientR2;
     private javax.swing.JTextField jTextFieldMarka;
     private javax.swing.JTextField jTextFieldModel;
+    private javax.swing.JTextField jTextFieldModelSamochoduR2;
     private javax.swing.JTextField jTextFieldNazwisko;
     private javax.swing.JTextField jTextFieldPesel;
     private javax.swing.JTextField jTextFieldRejstracja;
     private javax.swing.JTextField jTextFieldSzukaj;
     // End of variables declaration//GEN-END:variables
+
 }

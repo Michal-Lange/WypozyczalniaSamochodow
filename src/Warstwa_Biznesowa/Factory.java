@@ -13,7 +13,23 @@ import java.util.ArrayList;
  */
 public class Factory {
 
-    ModelSamochodu create_modelSamochodu(String[] data1) {
+    public Klient create_Klient(String[] klientString)
+    {
+        Klient klient = new Klient();
+        if(klientString != null && klient !=null)
+        {
+            klient.setImie(klientString[0]);
+            klient.setNazwisko(klientString[1]);
+            klient.setPesel(klientString[2]);
+            return klient;
+        }
+        else
+        {
+            return null;
+        }
+    }
+            
+    public ModelSamochodu create_modelSamochodu(String[] data1) {
         ModelSamochodu modelSamochodu = new ModelSamochodu();
         if(data1 != null && modelSamochodu !=null)
         {
