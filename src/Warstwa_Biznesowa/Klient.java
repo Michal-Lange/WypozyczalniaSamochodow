@@ -5,20 +5,32 @@
  */
 package Warstwa_Biznesowa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Falco
  */
-public class Klient {
+@Entity
+public class Klient implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String imie;
     private String nazwisko;
     private String pesel;
     
+    @OneToMany(mappedBy = "klient")
     private ArrayList<Rezerwacja> rezerwacjeKlienta;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     
     public Klient()
     {
@@ -86,7 +98,7 @@ public class Klient {
     }
 
     /**
-     * @param rezerwacje_klienta the rezerwacje_klienta to set
+     * @param rezerwacjeKlienta
      */
     public void setRezerwacjeKlienta(ArrayList<Rezerwacja> rezerwacjeKlienta) {
         this.rezerwacjeKlienta = rezerwacjeKlienta;
@@ -113,5 +125,13 @@ public class Klient {
         hash = 47 * hash + Objects.hashCode(this.nazwisko);
         hash = 47 * hash + Objects.hashCode(this.pesel);
         return hash;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

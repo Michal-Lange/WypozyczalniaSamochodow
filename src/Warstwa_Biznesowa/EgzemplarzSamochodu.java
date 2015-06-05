@@ -5,21 +5,37 @@
  */
 package Warstwa_Biznesowa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Falco
  */
-public class EgzemplarzSamochodu {
+@Entity
+public class EgzemplarzSamochodu implements Serializable  {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @ManyToOne
     private ModelSamochodu modelSamochodu;
     private String nrRejstracyjny;
     private String rokProdukcji;
     private int pojemoscSilnika;
     private String rodzajPaliwa;
     private String typNadwozia;
+    @OneToMany(mappedBy = "egzemplarzSamochodu")
     private ArrayList<Rezerwacja> rezerwacjeEgzemplarza;
+    
     
     public EgzemplarzSamochodu()
     {
@@ -51,6 +67,34 @@ public class EgzemplarzSamochodu {
         int hash = 7;
         hash = 83 * hash + Objects.hashCode(this.nrRejstracyjny);
         return hash;
+    }
+    
+    boolean addRezerwacja(Klient klient, Date czasWypozyczenia, Date czasZwrotu)
+    {
+        boolean wolny = true;
+        for(Rezerwacja rezerwacjaIstniejaca: getRezerwacjeEgzemplarza())
+        {
+            if(!(czasZwrotu.before(rezerwacjaIstniejaca.getCzasWypozyczenia()) || czasWypozyczenia.after(rezerwacjaIstniejaca.getCzasZwrotu()))){
+                wolny = false;
+            }
+        }
+        if (wolny)
+        {
+            Rezerwacja rezerwacja = new Rezerwacja();
+            rezerwacja.setCzasWypozyczenia(czasWypozyczenia);
+            rezerwacja.setCzasZwrotu(czasZwrotu);
+            rezerwacja.setEgzemplarzSamochodu(this);
+            rezerwacja.setModelSamochodu(getModelSamochodu());
+            rezerwacja.setKlient(klient);
+            klient.addRezerwacja(rezerwacja);
+            addRezerwacja(rezerwacja);
+            getModelSamochodu().addRezerwacja(rezerwacja);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     boolean addRezerwacja(Rezerwacja rezerwacja){
@@ -153,6 +197,18 @@ public class EgzemplarzSamochodu {
      */
     public void setRezerwacjeEgzemplarza(ArrayList<Rezerwacja> rezerwacjeEgzemplarza) {
         this.rezerwacjeEgzemplarza = rezerwacjeEgzemplarza;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    void addRezerwacja() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
             
 }

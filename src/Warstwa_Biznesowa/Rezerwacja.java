@@ -5,17 +5,34 @@
  */
 package Warstwa_Biznesowa;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author Falco
  */
-public class Rezerwacja {
+@Entity
+public class Rezerwacja implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @ManyToOne
     private Klient klient;
+    @ManyToOne
     private ModelSamochodu modelSamochodu;
+    @ManyToOne
     private EgzemplarzSamochodu egzemplarzSamochodu;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date czasWypozyczenia;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date czasZwrotu;
 
     @Override
@@ -113,6 +130,14 @@ public class Rezerwacja {
      */
     public void setCzasZwrotu(Date czasZwrotu) {
         this.czasZwrotu = czasZwrotu;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

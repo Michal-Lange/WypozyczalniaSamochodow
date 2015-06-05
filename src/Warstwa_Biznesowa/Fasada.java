@@ -228,27 +228,49 @@ public class Fasada {
         return null;
     }
     
+      public ModelSamochodu szukaj_model(String[] dane)
+    {
+        if(dane!=null)
+        {
+            Factory fabryka = new Factory();
+            String[] daneModel = {dane[0],dane[1],dane[2]};
+            ModelSamochodu modelWzorzec = fabryka.create_modelSamochodu(daneModel);
+            int idx = getModeleSamochodow().indexOf(modelWzorzec);
+            if(idx!=-1)
+            {
+              //  String[] daneEgzemplarz = {dane[3],dane[4],dane[5],dane[6],dane[7]};
+             //   EgzemplarzSamochodu egzemplarzWzorzec = fabryka.create_egzemplarzSamochodu(daneEgzemplarz);
+             //   int idxe = getModeleSamochodow().get(idx).getEgzemplarzeModelu().indexOf(egzemplarzWzorzec);
+              //  if(idxe!=-1)
+              //  {
+                    return getModeleSamochodow().get(idx);//.getEgzemplarzeModelu().get(idxe);
+                }
+        }
+        return null;
+    }
+    
     public boolean addRezerwacja (String[] klient, String[] egzemplarz, long czasWypozyczenia, long czasZwrotu)
     {
-        if(klient != null && egzemplarz != null)
+      //  if(klient != null && egzemplarz != null)
         {
             Klient rKlient = szukajKlienta(klient);
-            EgzemplarzSamochodu rEgzemplarz = szukajEgzemplarza(egzemplarz);
+           // EgzemplarzSamochodu rEgzemplarz = szukajEgzemplarza(egzemplarz);
+            ModelSamochodu model = szukaj_model(egzemplarz);
             Date wypozyczenie = new Date(czasWypozyczenia);
             Date zwrot = new Date(czasZwrotu);
-            if(rKlient != null && rEgzemplarz!= null)
+            if(rKlient != null && model!= null)
             {
-                return addRezerwacja(rKlient, rEgzemplarz, wypozyczenie, zwrot);
+                return model.addRezerwacja(rKlient, egzemplarz, wypozyczenie, zwrot);
             }
         }
         return false;
     }
     
+    
+    
     public boolean addRezerwacja (Klient klient, EgzemplarzSamochodu egzemplarz, Date czasWypozyczenia, Date czasZwrotu)
     {
         Rezerwacja rezerwacja = new Rezerwacja();
-        if(klient!=null && egzemplarz!= null && czasZwrotu!=null && rezerwacja!=null){
-
             boolean wolny = true;
             for(Rezerwacja rezerwacjaIstniejaca: egzemplarz.getRezerwacjeEgzemplarza())
             {
@@ -272,11 +294,6 @@ public class Fasada {
             {
                 return false;
             }
-        }
-        else
-        {
-            return false;
-        }
     }
     
     /**

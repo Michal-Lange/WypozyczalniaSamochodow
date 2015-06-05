@@ -5,18 +5,32 @@
  */
 package Warstwa_Biznesowa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Falco
  */
-public class ModelSamochodu {
+@Entity
+public class ModelSamochodu implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String marka;
     private String model;
     private int iloscMiejsc;
+    @OneToMany(mappedBy = "modelSamochodu")
     private ArrayList<Rezerwacja> rezerwacjeModelu;
+    @OneToMany(mappedBy = "modelSamochodu")
     private ArrayList<EgzemplarzSamochodu> egzemplarzeSamochodu;
     
     public ModelSamochodu()
@@ -56,6 +70,14 @@ public class ModelSamochodu {
         return rezerwacjeModelu.add(rezerwacja);
     }
 
+    
+    public boolean addRezerwacja (Klient klient, String[] egzemplarz, Date czasWypozyczenia, Date czasZwrotu)
+    {
+        Factory fabryka = new Factory();
+        EgzemplarzSamochodu egzWzorzec = fabryka.create_egzemplarzSamochodu(egzemplarz);
+        EgzemplarzSamochodu znalezionyEgzemplarz = search_egzemplarz(egzWzorzec);
+        return znalezionyEgzemplarz.addRezerwacja(klient, czasWypozyczenia, czasZwrotu);
+    }
     
     public String getMarka() {
         return marka;
@@ -110,11 +132,7 @@ public class ModelSamochodu {
         String modelSamochodu2 = ((ModelSamochodu) ob).getModel();
         int iloscMiejsc1 = this.getIloscMiejsc();
         int iloscMiejsc2 = ((ModelSamochodu) ob).getIloscMiejsc();
-        if(markaSamochodu1.equals(markaSamochodu2) && (modelSamochodu1.equals(modelSamochodu2)) && (iloscMiejsc1 == iloscMiejsc2))
-        {
-            return true;
-        }
-        return false;
+        return markaSamochodu1.equals(markaSamochodu2) && (modelSamochodu1.equals(modelSamochodu2)) && (iloscMiejsc1 == iloscMiejsc2);
     }
 
     @Override
@@ -186,5 +204,13 @@ public class ModelSamochodu {
             return egzemplarz;
         }
         return null;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
