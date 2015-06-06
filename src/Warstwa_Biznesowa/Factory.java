@@ -48,11 +48,11 @@ public class Factory {
         EgzemplarzSamochodu egzemplarzSamochodu = new EgzemplarzSamochodu();
         if(data!=null && egzemplarzSamochodu!=null)
         {
-            egzemplarzSamochodu.setNrRejstracyjny(data[3]);
-            egzemplarzSamochodu.setRokProdukcji(data[4]);
-            egzemplarzSamochodu.setRodzajPaliwa(data[5]);
-            egzemplarzSamochodu.setTypNadwozia(data[6]);
-            egzemplarzSamochodu.setPojemoscSilnika(Integer.parseInt(data[7]));
+            egzemplarzSamochodu.setNrRejstracyjny(data[0]);
+            egzemplarzSamochodu.setRokProdukcji(data[1]);
+            egzemplarzSamochodu.setRodzajPaliwa(data[2]);
+            egzemplarzSamochodu.setTypNadwozia(data[3]);
+            egzemplarzSamochodu.setPojemoscSilnika(Integer.parseInt(data[4]));
             return egzemplarzSamochodu;
         }
         return null;

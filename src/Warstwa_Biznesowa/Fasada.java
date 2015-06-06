@@ -238,23 +238,16 @@ public class Fasada {
             int idx = getModeleSamochodow().indexOf(modelWzorzec);
             if(idx!=-1)
             {
-              //  String[] daneEgzemplarz = {dane[3],dane[4],dane[5],dane[6],dane[7]};
-             //   EgzemplarzSamochodu egzemplarzWzorzec = fabryka.create_egzemplarzSamochodu(daneEgzemplarz);
-             //   int idxe = getModeleSamochodow().get(idx).getEgzemplarzeModelu().indexOf(egzemplarzWzorzec);
-              //  if(idxe!=-1)
-              //  {
                     return getModeleSamochodow().get(idx);//.getEgzemplarzeModelu().get(idxe);
-                }
+            }
         }
         return null;
     }
     
     public boolean addRezerwacja (String[] klient, String[] egzemplarz, long czasWypozyczenia, long czasZwrotu)
     {
-      //  if(klient != null && egzemplarz != null)
         {
             Klient rKlient = szukajKlienta(klient);
-           // EgzemplarzSamochodu rEgzemplarz = szukajEgzemplarza(egzemplarz);
             ModelSamochodu model = szukaj_model(egzemplarz);
             Date wypozyczenie = new Date(czasWypozyczenia);
             Date zwrot = new Date(czasZwrotu);
@@ -433,7 +426,7 @@ public class Fasada {
             int i=0;
             for(EgzemplarzSamochodu egzemplarz: wyszukane)
             {
-                String dodany[] = {egzemplarz.getModelSamochodu().getModel(),egzemplarz.getModelSamochodu().getMarka(), Integer.toString(egzemplarz.getModelSamochodu().getIloscMiejsc()),
+                String dodany[] = {egzemplarz.getModelSamochodu().getMarka(), egzemplarz.getModelSamochodu().getModel(), Integer.toString(egzemplarz.getModelSamochodu().getIloscMiejsc()),
                     egzemplarz.getNrRejstracyjny(), egzemplarz.getRodzajPaliwa(), egzemplarz.getRokProdukcji(), egzemplarz.getTypNadwozia(), Integer.toString(egzemplarz.getPojemoscSilnika())};
                 wynik[i++]=dodany;
             }
@@ -574,6 +567,23 @@ public class Fasada {
             }
         }
         return null;
+    }
+
+    public synchronized void update_data(ModelSamochodu[] modeleSamochodow, EgzemplarzSamochodu[] egzemplarzeSamochodu){
+        this.modeleSamochodow.clear();
+        for(ModelSamochodu model: modeleSamochodow) {
+            this.modeleSamochodow.add(model);
+        }
+        for(ModelSamochodu model:  modeleSamochodow) {
+            for(EgzemplarzSamochodu egzemplarz: egzemplarzeSamochodu) {
+                ModelSamochodu model1 = egzemplarz.getModelSamochodu();
+                if(model1!=null){
+                    if(model1.equals(model)){
+                        model.getEgzemplarzeModelu().add(egzemplarz);
+                    }
+                }
+            }
+        }
     }
 }
 

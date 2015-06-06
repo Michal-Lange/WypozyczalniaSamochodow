@@ -74,7 +74,8 @@ public class ModelSamochodu implements Serializable {
     public boolean addRezerwacja (Klient klient, String[] egzemplarz, Date czasWypozyczenia, Date czasZwrotu)
     {
         Factory fabryka = new Factory();
-        EgzemplarzSamochodu egzWzorzec = fabryka.create_egzemplarzSamochodu(egzemplarz);
+        String egz[] = {egzemplarz[3],egzemplarz[4],egzemplarz[5],egzemplarz[6],egzemplarz[7]};
+        EgzemplarzSamochodu egzWzorzec = fabryka.create_egzemplarzSamochodu(egz);
         EgzemplarzSamochodu znalezionyEgzemplarz = search_egzemplarz(egzWzorzec);
         return znalezionyEgzemplarz.addRezerwacja(klient, czasWypozyczenia, czasZwrotu);
     }

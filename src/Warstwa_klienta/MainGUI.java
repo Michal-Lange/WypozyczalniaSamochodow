@@ -934,10 +934,10 @@ public class MainGUI extends javax.swing.JFrame {
     private void jButtonSzukajEgzemplarzyR2ModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzukajEgzemplarzyR2ModelActionPerformed
         if(jTableModeleR2.getSelectedRow() != -1)
         {
-            String model = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 0).toString();
-            String marka = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 1).toString();
+            String marka = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 0).toString();
+            String model = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 1).toString();
             String miejsca = jTableModeleR2.getModel().getValueAt(jTableModeleR2.getSelectedRow(), 2).toString();
-            String[] modelSamochodu = {model, marka, miejsca};
+            String[] modelSamochodu = {marka, model, miejsca};
             Date wypozyczenie = (Date)jSpinnerDataR2.getValue();
             GregorianCalendar cal = new GregorianCalendar();
             cal.setTime(wypozyczenie);
@@ -1041,7 +1041,7 @@ public class MainGUI extends javax.swing.JFrame {
     }
     
     private void fillTableEgzemplarzeR2(String[][] egzemplarze){
-            String col[] = {"Model","Marka","Miejsca","Rejstracja","Paliwo","Rocznik","Nadwozie","Pojemnosc" };
+            String col[] = {"Marka","Model","Miejsca","Rejstracja","Paliwo","Rocznik","Nadwozie","Pojemnosc" };
             DefaultTableModel defaultTableModelModeleEgzemplarz = new DefaultTableModel(col,0);
             jTableEgzemplarzeR2.setModel(defaultTableModelModeleEgzemplarz);
             for (String egzemplarz[] : egzemplarze) {
@@ -1134,10 +1134,14 @@ public class MainGUI extends javax.swing.JFrame {
             String col[] = {"Marka","Model","Miejsca","Rejstracja","Paliwo","Rocznik","Nadwozie","Pojemnosc" };
             DefaultTableModel defaultTableModelEgzemplarzeModeli = new DefaultTableModel(col,0);
             jTableEgzemplarzeModeli.setModel(defaultTableModelEgzemplarzeModeli);
-            String marka = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 0).toString();
-            String model = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 1).toString();
-            String miejsca = jTableModeleDodajEgzemplarz.getModel().getValueAt(jTableModeleDodajEgzemplarz.getSelectedRow(), 2).toString();
-            String dataModel[] = {model,marka,miejsca};
+            int row = jTableModeleDodajEgzemplarz.getSelectedRow();
+            if(row == -1)
+                row = 0;
+                
+            String marka = jTableModeleDodajEgzemplarz.getModel().getValueAt(row, 0).toString();
+            String model = jTableModeleDodajEgzemplarz.getModel().getValueAt(row, 1).toString();
+            String miejsca = jTableModeleDodajEgzemplarz.getModel().getValueAt(row, 2).toString();
+            String dataModel[] = {marka,model,miejsca};
             String egzemplarzeModelu[][] = fasada.getEgzemplarzeModeluAsStringArray(dataModel);
             for (String egzemplarz[] : egzemplarzeModelu) {
                 Object[] objs = {egzemplarz[0],egzemplarz[1],egzemplarz[2],egzemplarz[3],egzemplarz[4],egzemplarz[5],egzemplarz[6],egzemplarz[7]};

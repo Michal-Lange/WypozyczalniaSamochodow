@@ -8,6 +8,7 @@ package Warstwa_integracji;
 import Warstwa_Biznesowa.ModelSamochodu;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -57,4 +58,18 @@ public class ModelSamochoduController {
             return false;
         }
     }
+    
+    public ModelSamochodu[] getTModeleSamochodu_() {
+        return (ModelSamochodu[]) getModeleSamochodu().toArray(new ModelSamochodu[0]);
+    }
+    public List<ModelSamochodu> getModeleSamochodu() {
+        EntityManager em = getEntityManager();
+        try {
+        javax.persistence.Query q = em.createQuery("select c from ModelSamochodu as c");
+        return q.getResultList();
+        } finally {
+        em.close();
+        }
+    }
+
 }

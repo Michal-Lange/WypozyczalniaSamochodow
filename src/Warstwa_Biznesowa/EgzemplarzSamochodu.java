@@ -205,10 +205,5 @@ public class EgzemplarzSamochodu implements Serializable  {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    void addRezerwacja() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-            
+    }            
 }
